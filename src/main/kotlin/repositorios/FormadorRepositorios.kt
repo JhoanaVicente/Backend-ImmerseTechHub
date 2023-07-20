@@ -1,15 +1,10 @@
 package repositorios
 
 import domain.Formador
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
 
-
-@Repositorio
-interface FormadorRepositorio : JpaRepositorio<Formador, Long> {
+@Repository
+interface FormadorRepositorios : JpaRepository<Formador, Long> {
     fun findByAddressContaining(location: String): List<Formador>
 }
-
-open class JpaRepositorio<T, U> {
-
-}
-
-annotation class Repositorio
