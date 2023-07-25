@@ -1,22 +1,17 @@
 package domain
 
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Lob
-import jakarta.persistence.Table
+import jakarta.persistence.*
 
-annotation class Id
 
-annotation class Entity
-
-@Table(name = "formador")
+@Table(name = "formadores")
 @Entity
 data class Formador(
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    var id: Long,
-    @Lob
     var image: String,
     var name: String,
     val course: String,
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    var id: Long? = null,
 )
